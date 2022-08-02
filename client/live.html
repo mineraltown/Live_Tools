@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+    <link rel="stylesheet" href="live.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
+    <link rel="manifest" href="icon/site.webmanifest">
+    <link rel="shortcut icon" href="icon/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="矿石镇Live">
+    <meta name="application-name" content="矿石镇Live">
+    <meta name="msapplication-TileColor" content="#333333">
+    <meta name="msapplication-config" content="icon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <script src="https://unpkg.com/vue@3.2.36/dist/vue.global.prod.js"></script>
+    <title>矿石镇 Live</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T9JX4C52TL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-T9JX4C52TL');
+    </script>
+</head>
+<!--
+    版本 ver 2.0.0
+    作者 矿石镇的攻略百科
+    网站 wiki.mineraltown.net
+    E-Mail friends@mineraltown.net
+
+    本站使用 WTFPL 协议开源，你他妈的想干嘛就干嘛。
+
+    如需清空缓存，请在控制台输入：localStorage.clear()
+    如遇BUG请尝试清空本地缓存，或将bug截图及说明发送至本站联系邮箱。
+ -->
+
+<body>
+    <div id="live">
+        <!-- 商店营业信息 -->
+        <!-- <div class="shop">
+            <template v-if="!if_festival">
+                <div :class="((year-1)*120 + month*30 + day - 1)%7==4 ? 'holiday' : 'working_day'">
+                    <div>铁匠铺</div>
+                    <div class="open_time">AM11-PM4</div>
+                </div>
+                <div :class="((year-1)*120 + month*30 + day - 1)%7==0 ? 'holiday' : 'working_day'">
+                    <div>养鸡场</div>
+                    <div class="open_time">AM11-PM4</div>
+                </div>
+                <div :class="((year-1)*120 + month*30 + day - 1)%7==1 ? 'holiday' : 'working_day'">
+                    <div>约德尔</div>
+                    <div class="open_time">AM10-PM3</div>
+                </div>
+                <div :class="((year-1)*120 + month*30 + day - 1)%7==6 ? 'holiday' : 'working_day'">
+                    <div>果树园</div>
+                    <div class="open_time">AM10-PM12</div>
+                </div>
+                <div class="working_day">
+                    <div>旅馆</div>
+                    <div class="open_time">AM8-PM12<br>PM3-PM5<br>PM9-PM12</div>
+                </div>
+                <div :class="((year-1)*120 + month*30 + day - 1)%7==1 ? 'holiday' : 'working_day'">
+                    <div>图书馆</div>
+                    <div class="open_time">AM10-PM5</div>
+                </div>
+                <div
+                    :class="((year-1)*120 + month*30 + day - 1)%7==0 || ((year-1)*120 + month*30 + day - 1)%7==2 ? 'holiday' : 'working_day'">
+                    <div>杂货店</div>
+                    <div class="open_time">AM9-PM5</div>
+                </div>
+                <div :class="((year-1)*120 + month*30 + day - 1)%7==3 ? 'holiday' : 'working_day'">
+                    <div>医院</div>
+                    <div class="open_time">AM9-PM4</div>
+                </div>
+                <div
+                    :class="((year-1)*120 + month*30 + day - 1)%7==1 || ((year-1)*120 + month*30 + day - 1)%7==3 ? 'working_day' : 'holiday'">
+                    <div>教堂</div>
+                    <div class="open_time">PM1-PM3</div>
+                </div>
+                <div class="working_day">
+                    <div>木匠</div>
+                    <div class="open_time">AM11-PM4</div>
+                </div>
+                <div :class="((year-1)*120 + month*30 + day - 1)%7!=0 && month == 1 ? 'working_day' : 'holiday'">
+                    <div>海之家</div>
+                    <div class="open_time">AM11-PM1<br>PM5-PM7</div>
+                </div>
+                <div :class="((year-1)*120 + month*30 + day - 1)%7==3 ? 'working_day' : 'holiday'">
+                    <div>班的店</div>
+                </div>
+                <div :class="day==15 ? 'working_day' : 'holiday'">
+                    <div>宠物店</div>
+                </div>
+            </template>
+        </div> -->
+        <div class="info">
+            <span class="live_info">
+                游戏名称：《牧场物语 重聚矿石镇》<br>
+                平&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;台：&nbsp;&nbsp;Xbox Series X<br>
+                粉&nbsp;&nbsp;丝&nbsp;&nbsp;群：&nbsp;&nbsp;367977763
+            </span>
+            <!-- 软绵绵节专属置顶提醒 -->
+            <div class="todo_card wool" v-if="month==2 && day == 14">
+                <div class="todo_flex">答应我，准备参加参加软绵绵节的动物，从今天开始就不要剪毛了好吗？</div>
+            </div>
+            <!-- 五年一次的流星 -->
+            <div class="todo_card wool" v-if="year%5==0 && month==2 && day == 10">
+                <div class="todo_flex">
+                    <div class="todo_name">流星</div>
+                    <div class="birthday_like_sub">地点：<span class="normal">山顶</span></div>
+                    <div class="birthday_like_sub">时间：<span class="normal">PM6:00 ～ AM:6:00</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 超美味时间 -->
+            <template v-if="f.cookbook">
+                <div class="todo_card">
+                    <div class="todo_flex">
+                        <div class="todo_name">{{ f.cookbook.name }}</div>
+                        <div class="birthday_like_sub">记得看电视节目「{{f.cookbook.note}}」！</span></div>
+                    </div>
+                </div>
+            </template>
+            <!-- 自己的生日 -->
+            <div class="todo_card" v-if="birthday_month == month && birthday_day == day">
+                <div class="todo_flex">
+                    <div class="todo_name">今天是自己的生日！</div>
+                    <div class="birthday_myself">“对所有的烦恼说 Bye Bye，对所有的快乐说 Hi Hi”</div>
+                </div>
+            </div>
+            <!-- 节日 -->
+            <template v-for="i in f.festival">
+                <template v-if="i.month == season[month][1] && i.day == day">
+                    <div class="todo_card" v-if="!(year == 1 && i.name.cn == '年糕大会')">
+                        <div class="todo_flex">
+                            <div class="todo_name">{{ i.name.cn }}</div>
+                            <template v-if="i.address != null">
+                                <div class="birthday_like_sub">地点：<span class="normal">{{ i.address }}</span></div>
+                                <div class="birthday_like_sub">时间：<span class="normal">{{ i.start_time }} ～
+                                        {{ i.end_time }}</span>
+                                </div>
+                            </template>
+                            <template v-else>
+                                <div class="birthday_like_sub">时间：<span class="normal">全天</span>
+                                </div>
+                            </template>
+                            <template v-if="i.note != null">
+                                <div v-html="i.note"></div>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+            </template>
+            <!-- 生日 -->
+            <template v-for="i in f.birthday">
+                <template v-if="i.birthday.month == season[month][1] && i.birthday.day == day">
+                    <div class="todo_card">
+                        <div class="todo_flex">
+                            <div class="todo_name">{{ i.name.cn }}</div>
+                            <div class="birthday_like_sub" v-if="i.like.best.length != 0">
+                                最喜欢：
+                                <template v-for="(x,y) in i.like.best">
+                                    <span class="normal" v-if="y<i.like.best.length-1">{{ x }}、</span>
+                                    <span class="normal" v-else>{{ x }}</span>
+                                </template></div>
+                            <div class="birthday_like_sub">
+                                喜欢：
+                                <template v-for="(x,y) in i.like.more">
+                                    <span class="normal" v-if="y<i.like.more.length-1">{{ x }}、</span>
+                                    <span class="normal" v-else>{{ x }}</span>
+                                </template></div>
+                        </div>
+                    </div>
+                </template>
+            </template>
+            <div class="todo_card">
+                <template v-for="i in f.advance_festival">
+                    <div class="todo_name_note"><span
+                            class="birthday_like_sub">【{{ i.name.cn }}】</span>{{ i.month }}{{ i.day }}日&nbsp;&nbsp;还有{{ i.n }}天<br>
+                        <span v-if="i.name.cn=='软绵绵节'" class="warning"> 不要剪羊毛！！！</span></div>
+                </template>
+                <template v-for="i in f.advance_birthday">
+                    <div class="todo_name_note">
+                        <span
+                            class="birthday_like_sub">【{{ i.name.cn }}】</span>{{ i.birthday.month }}{{ i.birthday.day }}日&nbsp;&nbsp;还有{{ i.n }}天<br>
+                        <div class="todo_like" v-if="i.like.best.length != 0">
+                            <u>
+                                <template v-for="(x,y) in i.like.best">
+                                    <span class="normal" v-if="y<i.like.best.length-1">{{ x }}、</span>
+                                    <span class="normal" v-else>{{ x }}</span>
+                                </template>
+                            </u>
+                        </div>
+                        <div class="todo_like">
+                            <template v-for="(x,y) in i.like.more">
+                                <span class="normal" v-if="y<i.like.more.length-1">{{ x }}、</span>
+                                <span class="normal" v-else>{{ x }}</span>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="plus.js"></script>
+
+</html>

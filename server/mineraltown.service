@@ -1,0 +1,13 @@
+[Unit]
+Description=Mineraltown Live Pro Server
+After=network.target
+
+[Service]
+WorkingDirectory=/root
+ExecStart=/usr/bin/python3 $(WorkingDirectory)/server.py
+Restart=on-failure
+RestartSec=30
+StandardInput=null
+
+[Install]
+WantedBy=multi-user.target

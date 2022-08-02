@@ -1,0 +1,186 @@
+@charset "utf-8";
+/* CSS Document */
+
+[v-cloak] {
+    display: none;
+}
+
+@font-face {
+    font-family: '975MaruSC';
+    src: url('./975MaruSC-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: '975MaruSC';
+    src: url('./975MaruSC-Bold.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    width: 1920px;
+    height: 1080px;
+    /* background-color: #ffffff; */
+    font-family: '975MaruSC';
+    user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    color: #555;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+#live {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.logo {
+    z-index: 999;
+    position: absolute;
+    width: 200px;
+    right: 10px;
+    top: 10px;
+}
+
+/* 商店 */
+
+.shop {
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 5px 0 5px 0;
+    padding: 10px 0 10px 0;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.open_time {
+    display: none;
+    font-size: 0.5em;
+}
+
+.working_day {
+    color: #471100;
+    margin: 0 0.3em 0 0.3em;
+    text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.holiday {
+    color: #999999;
+    margin: 0 0.3em 0 0.3em;
+    text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.info {
+    padding: 10px 10px 10px 20px;
+    width: 450px;
+    position: absolute;
+    right: 0;
+    top: 255px;
+    display: flex;
+    display: -webkit-flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 1.3em;
+}
+
+/* .animal {
+    font-size: 1em;
+    right: 0;
+    padding: 5px 0 5px 10px;
+    width: 440px;
+    height: auto;
+    color: white;
+    font-weight: bold;
+    background-color: #a06b3c;
+    border-top: solid 3px #f7f5d1;
+    border-bottom: solid 3px #f7f5d1;
+    border-left: solid 3px #f7f5d1;
+    border-radius: 5px 0 0 5px;
+} */
+
+.todo_card {
+    border-radius: 5px;
+    width: 100%;
+    margin: 3px 0 3px 0;
+    position: relative;
+    color: white;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.todo_flex {
+    margin: 10px;
+    display: flex;
+    display: -webkit-flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.todo_name {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.todo_name_note {
+    font-size: 1em;
+    margin: 10px 0 10px 0;
+}
+
+.todo_like {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.wool {
+    color: wheat;
+    text-shadow: none;
+    background-color: #966640;
+}
+
+.warning {
+    color: #b36c6d;
+}
+
+.birthday_like_sub {
+    font-weight: bold;
+}
+
+.birthday_myself {
+    font-size: 0.9em;
+}
+
+.normal {
+    font-weight: normal;
+}
+
+.live_info {
+    font-size: 1.1em;
+    color: white;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
