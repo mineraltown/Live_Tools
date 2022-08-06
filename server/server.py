@@ -61,7 +61,8 @@ with open(path / 'Resident.json', 'r', encoding='utf-8') as f:
     Resident = json.load(f)
     for i in Resident:
         if i['birthday']['month'] == MOON[SAVE["birthday_month"]] and i['birthday']['day'] == SAVE["birthday_day"]:
-            i['birthday']['day'] = i['birthday']['day2']
+            if i['birthday']['day2'] != None:
+                i['birthday']['day'] = i['birthday']['day2']
 # 节日信息
 with open(path / 'Festival.json', 'r', encoding='utf-8') as f:
     Festival = json.load(f)
